@@ -1,0 +1,31 @@
+﻿@model List<Customer>
+<form method="post" asp-controller="Customer" asp-action="Index">
+    <span>Customer Name:</span><input type="text" name="CustomerName" />
+    <input type="submit" value="Search" />
+    <br />
+    <a asp-action="Index">Back to Full List</a>
+    <br />
+
+    <table class="table table-striped">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">CustomerID</th>
+                <th scope="col">ContactName</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+            </tr>
+        </thead>
+       
+        @foreach (Customer customer in Model)
+        {
+            <tr>
+                <td scope="row">@customer.CustomerId</td>
+                <td>@customer.ContactName</td>
+                <td>@customer.City</td>
+                <td>@customer.Country</td>
+            </tr>
+        }
+
+
+    </table>
+</form>
